@@ -1,3 +1,7 @@
+# Title: Shipping Charges
+# Author: Andrew Bittner
+# Date: 9/13/2024
+
 # Programming Excersize 3-13
 
 # The Fast Freight Shipping Company charges the following rates:
@@ -12,9 +16,25 @@
 def weight_conversion(weight):
     # Calculate the shipping charge.
     shippingCost = 0.0
-    ######################
-    # WRITE YOUR CODE HERE
-    ######################
+    active = True
+    while active:
+        weight = (float(input("Please input your package weight, in numeric form (no units): ")))
+        if weight >= 0.0:
+            if weight <= 2.0:
+                shippingCost = 1.5
+                active = False
+            elif weight <= 6.0:
+                shippingCost = 3.0
+                active = False
+            elif weight  <= 10.0:
+                shippingCost = 4.0
+                active = False
+            elif weight > 10.0:
+                shippingCost = 4.75
+                active = False
+        else:
+            print("Invalid input: negative numbers. Please try again.")
+
     
     return shippingCost
 
@@ -26,7 +46,7 @@ if __name__ == '__main__':
     weight = 0.0
     shippingCost = 0.0
     # Get package weight from the user.
-    weight = float(input('Enter the weight of the package: '))
+    # weight = float(input('Enter the weight of the package: '))
     # Display the shipping charge.
     shippingCost = weight_conversion(weight)
     print ('Shipping charge: $', format(shippingCost, '.2f'))
